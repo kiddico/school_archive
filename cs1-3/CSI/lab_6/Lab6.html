@@ -1,0 +1,142 @@
+
+<!-- saved from url=(0055)http://vega.cs.kent.edu/~mikhail/classes/csi/Labs/Lab6/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><h1>Call-by-Reference, Arrays</h1>
+
+You are free to use a single or multiple files for this project. If you
+are putting all functions in a single file, make sure that more
+abstract functions are defined first.
+<p>
+</p><ol>
+<li><b>Mini-sort with functions.</b>  Create a project
+    titled <samp>Lab6_Swap</samp>. Revisit <a href="http://vega.cs.kent.edu/~mikhail/classes/csi/Labs/Lab6/sort.cpp">this
+    program</a> from one of the earlier lab assignments that sorts
+    three numbers in the increasing order. Modify it so that it
+    invokes a function to swap the values of two variables. You should
+    use the swapping function from <a href="http://vega.cs.kent.edu/~mikhail/classes/csi/Labs/Lab6/swapem.cpp">this
+    program</a>. The pseudocde for the
+    <samp>main()</samp> function is as follows:
+    <pre>      input three numbers
+      if first number is greater than second 
+          invoke the swap function to swap first and second numbers
+      if first is greater than third 
+          invoke the swap function to swap first and third numbers
+      if second is greater than third
+          invoke the swap function to swap second and third numbers
+      output three sorted numbers
+    </pre>
+
+</li><li>
+
+<p>
+<b>Lottery.</b> In this assignment you are to code a program that
+selects 10 random non-repeating positive numbers (the lottery
+numbers), takes a single input from the user and checks the input with
+the ten lottery numbers. The user wins if her input matches one of the
+lottery numbers.
+</p><p>
+
+Study displaying arrays in functions
+<a href="http://vega.cs.kent.edu/~mikhail/classes/csi/Labs/MSVS/debugging.html">described here</a>.  As you program
+your project, demonstrate to the lab instructor displaying an array
+passed to a function.  Create a project
+titled <samp>Lab6_Lottery</samp>.  Declare an array <samp>wins</samp>
+of 10 integer elements.
+</p><p>
+Define the following functions:
+
+</p><ul>
+<li>Define function <samp>initialize()</samp> that takes
+array <samp>wins[]</samp> as a parameter and assigns <samp>-1</samp> to
+each element of the array.
+<p>
+<b>Hint:</b> Array elements are initialized to <smap>-1, which
+is outside of lottery numbers' range, to distinguish elements that have not
+been given lottery numbers yet.
+</smap></p><p>
+Passing an array as a parameter and its initialization is
+done similar to the code in <a href="http://vega.cs.kent.edu/~mikhail/classes/csi/Labs/Lab6/3fillUp.cpp">this program</a>.
+</p><p>
+</p></li><li>Define a function <samp>check()</samp> that takes a number and the
+array <samp>wins[]</samp> as parameters and returns <samp>true</samp>
+if the number matches one of the elements in the
+array, or <samp>false</samp> if none of the elements do. That is, in the
+function, you should write the code that iterates over the array
+looking for the number passed as the parameter. You may assume that
+the number that <samp>check()</samp> is looking for is always positive.
+<p>
+<b>Hint:</b> Looking for the match is similar to looking for the
+minimum number in <a href="http://vega.cs.kent.edu/~mikhail/classes/csi/Labs/Lab6/1fixedarray.cpp">this program</a>.  
+
+</p><p>
+</p></li><li>Define a function <samp>draw()</samp> that takes array <samp>wins</samp>
+as a parameter and fills it with 10 random integers whose values are
+from 0 to 99. The numbers should <u>not</u> repeat.
+<p>
+<b>Hint:</b> Use <samp>srand()</samp>, <samp>rand()</samp>
+and <samp>time()</samp> functions that we studied earlier to generate
+appropriate random numbers from 0 to 99 and fill the array. Before the
+selected number is entered into the array <samp>wins</samp>, call
+function <samp>check()</samp> to make sure that the new number is not
+already in the array. If it is already there, select another number.
+</p><p>
+The pseudocode for your <samp>draw()</samp> function may be as follows:
+  </p><pre>    declare a variable "number of selected lottery numbers so far",
+                 initialize this variable to zero
+    while (the_number_of_selected_elements is less than the array size)
+         select a new random number
+         call check() to see if this new random number is already in the array
+         if the new random number is not in the array
+             increment the number of selected elements
+             add the newly selected element to the array
+
+   </pre>
+<p>
+</p></li><li> 
+  Define function <samp>entry()</samp> that asks the user to enter a
+  single number from 0 to 99 and returns this value.
+
+<p>
+</p></li><li>Define function <samp>printOut()</samp> that outputs the
+  selected numbers and user input.<br>
+ <b>Hint:</b> Outputting the array can be done similar to
+  echoing it in <a href="http://vega.cs.kent.edu/~mikhail/classes/csi/Labs/Lab6/3fillUp.cpp">this program</a>.
+</li></ul>
+<p>
+The pseudocode your function <samp>main()</samp> should be as
+follows:
+
+  </p><pre>  main(){
+      declare array and other variables
+  
+      initialize(...) // fill array with -1
+      draw(...)       // select 10 non-repeating random numbers
+      entry(...)      // get user input
+      use check () to compare user input against lottery numbers
+      and output whether user won
+      printOut(...)   // outputs seleced lottery numbers
+  }
+  </pre>
+
+
+<p>
+  <b>Note:</b> A program that processes each element of the array
+  separately (i.e. accesses all 10 elements of the array for
+  assignment or comparison outside a loop) is inefficient and will
+  result in a poor grade.
+  </p><p>
+ <b>Note 2:</b> For your project, you should either pass the array
+ size (10) to the functions as a parameter or use a global constant to
+ store it. Hard-coding the literal constant <samp>10</samp> in
+ function definitions that receive the array as a parameter is poor
+ style. It should be avoided.
+
+
+</p></li></ol>
+
+
+<p>
+Make sure your programs adhere to proper programming style. Submit
+your projects to the subversion repository. Do not forget to verify
+your submission on the web.
+
+</p></body><autoscroll></autoscroll></html>

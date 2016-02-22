@@ -1,0 +1,28 @@
+
+<!-- saved from url=(0060)http://vega.cs.kent.edu/~mikhail/classes/cs3/Labs/lab19.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><h1>Templated List</h1>
+<h2>Lab Assignment</h2>
+
+The project is due in one week: by the midnight on the day of the next
+lab. Make sure to include your name in comments of the source
+files.
+<p>
+Modify the
+<a href="http://vega.cs.kent.edu/~mikhail/classes/cs3/Examples/TemplateIntro/ListTemplate/">
+list template example</a> as follows. Create a new templated
+class <samp>Collection</samp> that contains this list as a dynamically
+allocated member, i.e, the list contains a pointer to the first
+element.  You are not allowed to use STL containers.  The class has to
+implement <samp>addItem()</samp>, <samp>removeItem()</samp>, <samp>lastItem()</samp>
+and <samp>printCollection()</samp>
+methods. Method <samp>lastItem()</samp> should return the last item
+added to the collection.
+</p><p>
+Make sure that your templated list operates correctly with the <a href="http://vega.cs.kent.edu/~mikhail/classes/cs3/Labs/testCollection.cpp">following code</a>.
+
+</p><p> Templated member functions could be coded inline or
+outside. However, either way, they have to be in the header file.
+</p><p>
+You do not have to code the big three functions (copy constructor,
+destructor, overloaded assignment) for your template.
+</p></body><autoscroll></autoscroll></html>

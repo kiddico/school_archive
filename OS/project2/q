@@ -1,0 +1,4 @@
+#!/bin/bash
+clear
+g++ -pthread -std=c++11 constructzone.cpp -o output
+

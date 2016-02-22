@@ -1,0 +1,9 @@
+#!/bin/bash
+clear
+clang++ -Wall diff.cpp
+
+if [ -a a.out ]
+then
+	./a.out sample1 sample2
+	rm a.out
+fi

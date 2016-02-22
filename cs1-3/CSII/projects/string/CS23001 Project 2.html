@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0060)http://www.cs.kent.edu/~jmaletic/CS23001/programs/prog2.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="Author" content="Jonathan I. Maletic, Ph.D.">
+  <title>CS23001 Project 2</title>
+</head>
+<body>
+
+<hr>
+<div style="text-align: left;"> 
+<font face="Helvetica, Arial, sans-serif"> <b><font size="+2">
+CS 23001 Computer Science II: Data Structures &amp; Abstraction<br>
+Programming Project #2<br> <br>
+<font size="+1">
+Spring 2016 <br>
+</font></font></b> 
+</font></div><font face="Helvetica, Arial, sans-serif">
+<hr>
+
+<font style="font-family: helvetica,arial,sans-serif;" face="Helvetica, Arial, sans-serif">
+<font size="+1">
+<br>
+
+<b>Objectives:</b> <br>
+-Use a well developed ADT class which utilizes operator overloading. <br> 
+-Use dynamically allocated arrays. <br> <br>
+
+<b> Problem:</b> <br>
+The Apache web server produces information detailing web page accesses, this information is stored in a log file in the 
+<a href="http://httpd.apache.org/docs/mod/mod_log_config.html">Apache Common log file format</a>. 
+
+The assignment is to develop a program to process this log file and keep track of the different types of log entries.
+<br> <br>
+
+
+
+<b>Requirements:</b> 
+<ul style="margin-top: 0in">
+<li>You CANNOT use the C++ standard string or any other libraries for this assignment, except were specified.</li>
+<li>You must use your ADT string for the later parts of the assignment.</li>
+<li><code>using namespace std;</code> is stricly forbiden. As are any global <code>using</code> statements.</li>
+<li>Name the folder for this project: <code>string</code> (please use all lower case letters).</li>
+
+<li><b>Part 1</b> (25pts)</li>
+<ul style="margin-top: 0in">
+    <li>Implementation:</li>
+    <ul style="margin-top: 0in">
+        <li>Create an ADT <code>String</code> using the class construct.</li>
+        <li>Note: C++ has a standard type called <code>string</code> so you should not use this name.  Use <code>String</code> instead.</li>
+        <li>Please name all your files using only lower case letters.</li>
+        <li>Use the provided specification (string-part1.hpp) for naming your class and methods  You should rename this to string.hpp.
+            A test suite will be provided in Part 2 that uses this interface to test your string class. </li>
+        <li>You should use a fixed sized array of <code>char</code> for storage with a max capacity constant (DEFAULT_STRING_CAPACITY = 256).</li>
+        <li>Implement the constructor functions (i.e., for char[] and char).</li>
+        <li>Overload operator+ as concatenation (make sure it works for all variations string + string, string + char[], char[] + string, etc).</li>
+        <li>Overload all the relational operators (==, &lt;, &gt;, etc.).</li>
+        <li>Implement the methods length, substr, findstr, findchar.</li>
+        <li>Overload I/O operators.  Input should read in one word at a time.  The input operator for char[] works that way and can be used.</li>
+        <li>Overload the accessor/modifier <code>operator[]</code>.</li>
+    </ul>
+    <li>Testing: </li>
+    <ul style="margin-top: 0in">
+        <li>Develop a set of test cases, using asserts, for each of the operators and methods of the <code>String</code> class.</li>
+        <li>Write test cases first.  Testing must be thorough.  You will be relying on the string to be correct.</li>
+        <li>The command <code>make tests</code> will build and run the unit tests.</li>
+        <li>After each function passes a test, commit your work to svn with a message such as "Constructor tests passed".</li>
+        <li>Your string class will be tested on a set of cases developed by the instructor.  You will be graded on how well you pass these tests.
+            These tests cover the constructors, comparison, and the concatenation operator.</li>
+    </ul>
+</ul>
+
+<li><b>Part 2</b> (25pts)</li>
+<ul style="margin-top: 0in">log_4_large
+    <li>Implementation:</li>
+    <ul style="margin-top: 0in">
+        <li>Re-implement your <code>String</code> class to use a dynamically allocated array for storage.</li>
+        <li>Use the provided specification (string-part2.hpp) for naming your class and methods  You should rename this to string.hpp.</li>
+        <li>Implement a destructor, copy constructor, constant time swap, and assignment operator for your ADT.</li>
+        <li>Set the default capacity to <b>256</b> and allow the user to specify a different capacity (via a constructor function).</li>
+        <li>Implement a <code>resetCapacity</code> method to change the capacity of your string keeping the contents intact.  That is, create a new array and copy contents over to the new array, making sure to clean up memory.</li>
+    </ul>
+    <li>Testing: </li>
+    <ul style="margin-top: 0in">
+        <li>Re-run the tests again from Part 1.  Write additional tests for the methods developed in this part.</li>
+        <li>Write test cases first.  Testing must be thorough.  You will be relying on the <code>String</code> to be correct.</li>
+        <li>The command <code>make tests</code> will build and run the unit tests.</li>
+        <li>After each function passes a test, commit your work to svn with an appropriate message.</li>
+        <li>A testing <b>oracle</b> will also be provided.  These are a set of test cases for a large part of the string class functionality.  You should make sure that the test cases
+            you develop are as complete as the provided oracle.</li>
+        <li>You need to use the specification for <code>String</code> provided in string-part2.hpp to take advantage of the test oracle.</li>
+        <li>If you add additional member variables the tests will not work properly.</li>
+        <li>The command <code>make oracle</code> will build and run the unit tests.</li>
+    </ul>
+</ul>
+
+<li><b>Part 3</b> (25 pts)</li>
+   <ul style="margin-top: 0in">
+    <li>Implementation:</li>
+    <ul style="margin-top: 0in">
+       <li>You will use <code>std::vector&lt;&gt;</code> (need to include <code>&lt;vector&gt;</code>) for storing the results of parsing the input data. </li>
+       <li>For your <code>String</code> class, implement a method <code>std::vector&lt;String&gt; String::split(char) const;</code></li>
+       <li>This method will return
+           a vector of <code>String</code> split up based on a supplied character.  For example given s = "abc ef gh", the call s.split(' ') will return a  
+           vector with three strings: "abc", "ef", and "gh". </li>
+       <li>std::vector has a number of operations defined including operator[], and size (number of elements in the vector).
+    </li></ul>
+    <li>Testing: </li>
+    <ul style="margin-top: 0in">
+        <li>Write additional test cases for your split method (test_split.cpp).</li>
+        <li>Make sure these tests demostrate that the method work properly.</li>
+        <li>The command <code>make tests</code> will build and run the unit tests.</li>
+        
+    </ul>
+       
+   </ul>
+   
+<li><b>Part 4</b> (25 pts)</li>
+   <ul style="margin-top: 0in">
+    <li>Implementation:</li>
+    <ul style="margin-top: 0in">
+       <li>See the supplied source code and data files in the shared folder in svn.  
+           logentry.cpp defines an ADT for logEntry.  You will need to add functionality to this class (mainly constructors) to solve the problem. 
+           logview.cpp is the main and compiles and runs as is.  You can modify this if needed.</li>
+       <li>For each line in the log file split the line on blanks.  This should result in 10 strings.</li>
+       <li>If the entry is invalid (not 10 strings), store a blank <code>logEntry</code>.</li>
+       <li>For all valid entries you will need to do further processing and properly construct the <code>logEntry</code> data structure.
+           See logentry.hpp</li>
+    </ul>
+    <li>Testing: </li>
+    <ul style="margin-top: 0in">
+       <li>Write a function (called parse) to read all the lines from the file and create a logEntry object 
+            for each line. This function will return a vector of <code>logEntry</code>'s.</li>
+       <li>Write a function that given the vector of <code>logEntry</code>'s computes the total number of bytes in all the entries.</li>
+       <li>Write a function that given the vector of <code>logEntry</code>'s prints out the host member of each log entry (one per line).</li>
+       <li>Write a main that takes a file name and an option as command line parameters.  The program will open the file name given on the command
+           line and read from that file. Based on the command line options it will:</li>
+          <ul style="margin-top: 0in">
+          <li>Print all the logEntry entries (neatly one per line).</li>
+          <li>Print the total number of bytes.</li>
+          <li>Print the host member for each logEntry (one per line).</li>
+          
+       </ul>
+       <li>The command <code>make logview</code> will build and run this program.</li>
+       <li>Your program should work on all the provided input file(s).</li>
+       <li>A data file(s) are at <a href="http://www.cs.kent.edu/~jmaletic/CS23001/data/">www.cs.kent.edu/~jmaletic/CS23001/data/</a> .</li>
+       <li><b>Do NOT</b> copy these into subversion as
+           they are VERY large. The direct path is /users/cs/faculty/jmaletic/public_html/CS23001/data/log_4_large.txt</li>
+    </ul>
+    </ul>
+</ul>
+
+
+<b>Other Requirements:</b>
+<ul style="margin-top: 0in">
+    <li>You must have a separate specification file (.hpp), implementation file (.cpp), and main file.</li>
+    <li>Your program will be graded on programming and commenting style as well as the implementation of your ADT.</li>
+    <li>Include all source code files in svn.</li>
+    <li>You can NOT use a pre-defined or built in class (other than std::vector) to solve this problem. </li>
+    <li>See the grading policy for other requirements.</li>
+</ul>
+
+
+
+<hr width="100%">
+<address>
+URL: http://www.cs.kent.edu/~jmaletic/CS23001/programs/prog2.html<br>
+Last update: Tue Feb 16 15:00:22 2016 EST
+</address>
+<hr width="100%">
+
+
+
+</font></font></font></body><autoscroll></autoscroll></html>

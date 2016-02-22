@@ -1,0 +1,7 @@
+Implement a program that compares two text files character_by-character.
+The program should output the line numbers that contain different characters and the place where the two lines start to differ (the difference is denoted by V (caret) character.
+If both files are identical, the program should output not
+If one file is shorter than the other; the shorter file is assumed to have empty lines, i.e. the extra lines of the longer file are considered different from the empty lines of the shorter file.
+
+
+If one file is shorter than the other; the shorter file is assumed to have empty lines, i.e. the extra lines of the longer file are considered different from the empty lines of the shorter file.

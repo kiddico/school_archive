@@ -1,0 +1,30 @@
+Class Roster - Lab 4 
+
+File Naming and Structure
+
+'coursename.txt'
+First \t Last \t
+
+Put all names in Master List 
+
+Master Roster
+First	Last	Course
+----------------------
+mary	price	cs1
+joyce	rod		cs1, cs2
+
+if we see it again in another list, add to end of the list of courses the person is in
+(it being the name of the person)
+
+substring to remove the .txt
+find_last_of(.txt)
+good for stuff like cs1.cs2.txt (aka, assholes)
+
+last point: dropouts.
+
+any # of input files.
+last file can be assumed to be a dropout files, filled with people to remove, and not include in the master list at all. no matter how many courses she's in. 
+
+can't use assoiative containers. cause bleh.
+
+Anything else? negative ghost rider. 

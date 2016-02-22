@@ -1,0 +1,103 @@
+
+<!-- saved from url=(0055)http://vega.cs.kent.edu/~mikhail/classes/csi/Labs/Lab5/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><h1>Call-by-Value, Multiple Files</h1>
+<h2>Lab Assignment</h2>
+
+The assignment contains two parts.
+
+<ol>
+<li><b>Basal Metabolic Rate.</b> Study "Observing Program Stack"
+  <a href="http://vega.cs.kent.edu/~mikhail/classes/csi/Labs/MSVS/debugging.html">described here</a>.  As you program
+  your project below, demonstrate to the lab instructor observing
+  variables local to several function frames.
+  <p>
+
+  Create a project titled <samp>Lab5_BMR</samp> with a single file
+  titled <samp>bmr.cpp</samp> The program should calculate the
+  person's Basal Metabolic Rate - the number of calories per day a
+  person's body needs to function. Then, on the basis of calculated
+  BMR, your program should output how many doughnuts a person can
+  consume. A medium-size doughnut contains 195 calories. 
+
+  
+
+  </p><p>
+  The BMR formula is as follows:
+  </p><ul>
+  <li>for women:
+  <pre>  655 + (4.3 x weight in pounds) + (4.7 x height in inches) - (4.7 x age in years)
+  </pre>
+  </li><li>for men:
+  <pre>  66 + (6.3 x weight in pounds) + (12.9 x height in inches) - (6.8 x age in years)
+  </pre>
+  </li></ul>
+  <p>Depending on gender, BMR should be calculated by
+     functions <samp>bmrWomen()</samp> and <samp>bmrMen()</samp> that
+     both accept three parameters: "weight in pounds", "height in
+     inches" and "age in years" and return the BMR. Note that the BMR
+     has a fractional part.
+  </p><p>
+     The main function should prompt the user for her gender, weight,
+     height and age; compute the BMR and the number of doughnuts that
+     can be consumed per day; and then output both the BMR and the
+     number doughnuts.
+
+  </p><p> The number of doughnuts is: BMR divided by the number of calories
+     in a doughnut. Fractional number of doughnuts can be dropped. The
+     number of calories per doughnut (195) should be put in a named
+     constant.
+
+   </p><p>
+     On the basis of the user's gender, <smap>main() function
+     should decide whether to invoke <samp>bmrWomen()</samp> or
+     <samp>bmrMen()</samp>.  The user should input her height in feet
+     and inches. The <samp>main()</samp> function should compute the
+     total number of inches (one foot has 12 inches) and pass it to
+     the <samp>bmr</samp> functions.
+
+  </smap></p><p> Make sure to use the bmr function prototypes and put the function
+     definitions below the main function definition.
+
+  
+</p></li><li><b>Figures.</b> Create a project
+titled <samp>Lab5_Figures</samp>. This project shall contain multiple
+files. Write a program that repeatedly asks the user to select either
+square, left or right triangle, then inputs the figure size and then
+prints the appropriate shape in stars. For square, the program should
+ask whether the user wants a filled or a hollow square.  The program
+should quit if the user inputs an invalid option. See an example
+dialog below:
+
+<pre>1. square
+2. bottom left triangle
+3. top right triangle
+select figure: 1
+select size: 4
+filled or hollow [f/h]: h
+****
+*  *
+*  *
+****
+1. square
+2. bottom left triangle
+3. top right triangle
+...
+</pre>
+
+<p> You can reuse your code from the Looping lab.  Place the
+star-printing code in four separate functions:
+<samp>filledSquare</samp>, <samp>hollowSquare</samp>,
+<samp>leftTriangle</samp> and <samp>rightTriangle</samp>. Each
+function should accept a single integer parameter - the size of the
+figure and return no value (be a void-function). Create three separate
+files <samp>figures.cpp</samp>, <samp>figures.h</samp>, and
+<samp>figuresInput.cpp</samp>. Place the triangle and square function
+definitions in <samp>figures.cpp</samp> and their prototypes in
+<samp>figures.h</samp>. Make sure that the header file is protected
+against multiple inclusion.  Place the main function in
+<samp>figuresInput.cpp</samp> </p></li></ol>
+
+Make sure your programs adhere to proper programming style. Submit
+your projects to the subversion repository.  Do not forget to verify
+your submission on the web.
+</body><autoscroll></autoscroll></html>

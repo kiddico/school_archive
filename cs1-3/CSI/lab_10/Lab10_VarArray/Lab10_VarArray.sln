@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lab10_VarArray", "Lab10_VarArray\Lab10_VarArray.vcxproj", "{081E2CE4-937C-4F5C-8745-C85A4A59DC1D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{081E2CE4-937C-4F5C-8745-C85A4A59DC1D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{081E2CE4-937C-4F5C-8745-C85A4A59DC1D}.Debug|Win32.Build.0 = Debug|Win32
+		{081E2CE4-937C-4F5C-8745-C85A4A59DC1D}.Release|Win32.ActiveCfg = Release|Win32
+		{081E2CE4-937C-4F5C-8745-C85A4A59DC1D}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0060)http://www.cs.kent.edu/~jmaletic/CS23001/programs/prog1.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="Author" content="Jonathan I. Maletic, Ph.D.">
+  <title>CS23001 Project 1</title>
+</head>
+<body>
+
+<hr>
+<div style="text-align: left;"> 
+<font face="Helvetica, Arial, sans-serif"> <b><font size="+2">
+CS 23001 Computer Science II: Data Structures &amp; Abstraction<br>
+Programming Project #1<br> <br>
+<font size="+1">
+Spring 2016 <br>
+</font></font></b> 
+</font></div><font face="Helvetica, Arial, sans-serif">
+<hr>
+
+<font style="font-family: helvetica,arial,sans-serif;" face="Helvetica, Arial, sans-serif">
+<font size="+1">
+<br>
+
+<b>Objectives:</b> <br>
+Develop, implement, and use an Abstract Data Type (ADT) using the class construct in C++. <br> <br>
+
+<b> Problem:</b> <br>
+The data type <code>int</code> in C++ is limited to the word size of the CPU architecture (e.g., 32 or 64 bit).  Therefore you can only
+work with integers between −2,147,483,648 and 2,147,483,647 (in the case of signed 32 bit). Unsigned 32 bit is still only 10 digits.  
+Maxint for 64 is bit larger at 9,223,372,036,854,775,807 but still only 19 digits.
+Clearly, this causes difficulties for working with very large integer values (say 100 digits).  
+Your job is to develop an ADT (called <code>bigint</code>) that can take any size integer. It should work for 100, 200, 500, etc. 
+digit integers. <br> <br>
+
+Representation is a key issue for this assignment.  We recommend an array of integers, with each element representing one single digit (0 to 9) of the big number.  
+One could use an array of char, but the memory savings is pretty minimal.  Placing the values in the array is the interesting part.  The naïve representation makes
+storing the <code>bigint</code> easy but makes the operations (add and multiply) very difficult to implement.  A slightly more clever representation makes storing
+the big number a little bit
+harder but makes implementing the operations way easier.
+<br> <br>
+
+Arrays are typically drawn to be read left to right with the 0 element on the left and the largest on the right.  However, arrays are a completely made up concept 
+and are not physical in nature.  So you can draw them and think about them anyway you want.  For this problem having the right side as the 0 element and the left 
+side as the largest makes much more sense.  
+<br> <br>
+
+Take the example of the number 7925.  We show how it is stored in the array below.  The 5 is in the one's position, the 
+2 in the 10's position and so on.  This neatly corresponds to the index of the array.  The addition and multiple algorithms given below use this representation.
+
+<br>
+<br>
+<code>bigint</code>
+<table border="1" cellpadding="4" cellspacing="0" width="600">
+  <tbody>
+    <tr>
+      <td valign="top" width="19%">Index:</td>
+      <td valign="top" align="right" width="9%"> n </td>
+      <td valign="top" align="right" width="9%"> ... </td>
+      <td valign="top" align="right" width="9%"> 6 </td>
+      <td valign="top" align="right" width="9%"> 5 </td>
+      <td valign="top" align="right" width="9%"> 4 </td>
+      <td valign="top" align="right" width="9%"> 3 </td>
+      <td valign="top" align="right" width="9%"> 2 </td>
+      <td valign="top" align="right" width="9%"> 1 </td>
+      <td valign="top" align="right" width="9%"> 0 </td>
+    </tr>
+    <tr>
+      <td valign="top" width="19%">Place:</td>
+      <td valign="top" align="right" width="9%"> 10^n </td>
+      <td valign="top" align="right" width="9%"> ... </td>
+      <td valign="top" align="right" width="9%"> 10^6s  </td>
+      <td valign="top" align="right" width="9%"> 10^5s </td>
+      <td valign="top" align="right" width="9%"> 10000s </td>
+      <td valign="top" align="right" width="9%"> 1000s </td>
+      <td valign="top" align="right" width="9%"> 100s </td>
+      <td valign="top" align="right" width="9%"> 10s </td>
+      <td valign="top" align="right" width="9%"> 1s </td>
+    </tr>
+    <tr>
+      <td valign="top" width="19%">Value:</td>
+      <td valign="top" align="right" width="9%"> 0 </td>
+      <td valign="top" align="right" width="9%"> ... </td>
+      <td valign="top" align="right" width="9%"> 0 </td>
+      <td valign="top" align="right" width="9%"> 0 </td>
+      <td valign="top" align="right" width="9%"> 0 </td>
+      <td valign="top" align="right" width="9%"> 7 </td>
+      <td valign="top" align="right" width="9%"> 9 </td>
+      <td valign="top" align="right" width="9%"> 2 </td>
+      <td valign="top" align="right" width="9%"> 5 </td>
+    </tr>
+  </tbody>
+</table>
+
+<br> <br>
+
+
+<b>Requirements:</b> 
+<ul style="margin-top: 0in">
+<li>In your svn folder, name the folder for this project <code>bigint</code>.</li>
+<li>There is a makefile and test cases provided for you in the <code>shared</code> folder in svn.</li>
+<li>Your program must compile and run on the department's system (wasp or honet) using the provided makefile.</li>
+<li>You must use the class construct to implement your ADT.</li>
+<li>The ADT <code>bigint</code> need only work for positive numbers.</li>
+<li>Use a global constant value for the maximum size of the <code>bigint</code> that is, a constant sized array.</li>
+<li><code>using namespace std;</code> is stricly forbiden. As are any global <code>using</code> statements.</li>
+
+
+<li><b>Part 1</b> - 30 pts</li>
+   <ul style="margin-top: 0in">
+       <li>Implementation:</li>
+          <ul style="margin-top: 0in">
+          <li>Develop .hpp  and .cpp files to implement your ADT. </li>
+          <li>The size of the <code>bigint</code> must be specified by a global constant.</li>
+          <li>A default constructor to initialize a <code>bigint</code> to zero. </li>
+          <li>A constructor to initialize a <code>bigint</code> to an <code>int</code> value you provide [0, maxint].
+              Example: <code>bigint(128)</code>.</li>
+          <li>A constructor to initialize a <code>bigint</code> to a <code>char[]</code> you provide.  You can assume what is provided
+               is a valid <code>bigint</code>. Example: <code>bigint("299793")</code>. </li>
+          <li>Overload output operator&lt;&lt;() as a friend function, so that takes a stream and <code>bigint</code> as input and writes the <code>bigint</code> to the stream. It should print at most 50 digits per line.  No leading zeros should be printed.</li>
+          <li>Overload operator==() to compare if two <code>bigint</code>s are equal.  It should return a <code>bool</code> - true if equal and false otherwise.</li>
+       </ul>
+       <li>Testing: </li>
+       <ul style="margin-top: 0in">
+         <li>Use the provided set of test cases to demostrate the correctness of each method you develop.  You may add additional cases to these tests.</li>
+         <li>There is one for the three different constructors.  They also use the operator&lt;&lt;()  and operator==().  So these will be tested at the same time.</li>
+         <li>These will be a template for the unit tests for the rest of the project.</li>       
+         <li>You will add unit tests for each part of the assignment.</li>
+         <li>The command <code>make tests</code> will build and run the unit tests.</li>
+       </ul>
+   </ul>
+   
+<li><b>Part 2</b> - 30 pts</li>
+   <ul style="margin-top: 0in">
+       <li>Implementation:</li>
+         <ul style="margin-top: 0in">
+         <li>Overload input operator&gt;&gt;() a <code>bigint</code> in the following manner: Read in any number of
+             digits [0-9] until a semi colon ";" is encountered.  The number may span over multiple lines.  You can assume the input is valid.</li>
+         <li>Overload add (+) two  <code>bigint</code> together</li> 
+         <li>Overload the subscript operator[]().  It should return the i-th digit, where i is the 10^i position.  So the first digit is the the one's
+             place (10^0) and the second digit is 10^1 (ten's place).   </li>
+         </ul>
+       <li>Testing: </li>
+       <ul style="margin-top: 0in">
+         <li>Build unit test for operator+().  There are some test but it very incomplete.  You will need develop better tests cases here.</li>
+         <li>Build unit tests for operator[]. There is a file for this but has no tests.</li>
+         <li>Make sure your input operator works.  This requires you to manually inspect the output. Test with different values and ranges.</li>
+         <li>You will need to update the makefile - instructions are in the makefile.</li>   
+         <li>The command <code>make tests</code> will build and run the unit tests.</li>
+
+       <li>Create a main body, name the file add.cpp.  See part2-main.cpp as a starting point.  The main reads from the file data1-1.txt and must do the following:</li>
+         <ul style="margin-top: 0in">
+         <li>Test for success of opening the file in your program.</li>
+         <li>Read in two numbers into <code>bigint</code>s and write both out separated by a blank line.</li>
+         <li>Add these together and write the result.</li>
+         <li>Then read in two more big numbers, adding them and writing the result until end of file.</li>      
+         <li>All output must be labeled and neat.</li>
+         <li>The command <code>make add</code> will build and run this program.</li>
+       </ul>
+    </ul>
+   </ul>
+   
+<li><b>Part 3</b> - 40 pts</li>
+   <ul style="margin-top: 0in">
+       <li>Implementation:</li>
+         <ul style="margin-top: 0in">
+         <li>A method to multiply a <code>bigint</code> and a single digit integer between 0 and 9. This method could be called something like timesDigit().  Note that this is
+             different than <code>bigint</code> * <code>int</code> because here the <code>int</code> will be converted into a <code>bigint</code> automatically by the constructor
+              so would end up being <code>bigint</code> * <code>bigint</code>.  </li>
+         <li>A method to multiply a <code>bigint</code> by 10^n with n&gt;0. (a.k.a. shift left base 10).  This method could be called something like times10() or shiftleft().</li>
+         <li>Overload * to multiply two <code>bigint</code>s. Implement this multiply using the shift left and times single digit methods above. 
+             The algorithm to multiply two <code>bigint</code>s is as follows:</li>
+         <ul style="margin-top: 0in">
+         <code>
+         <li>//To compute A * B</li>
+         <li>//B[0] is 1s place, B[1] is 10s place, B[2] is 100s place, etc.</li>
+         <li>product = 0; </li>
+         <li>for i = 0 to maxDigits-1 do   </li>
+            <ul style="margin-top: 0in">
+               <li> //product = product + ( (A * B[i]) * 10^i ) </li>
+               <li> temp = A.timesDigit(B[i]); </li>
+               <li> product = product + temp.times10(i); </li>
+            </ul>
+         <li>end for </li>
+         </code>
+         </ul>
+         </ul>
+         
+       <li>Testing: </li>
+       <ul style="margin-top: 0in">
+         <li>Build unit tests for the times 10 and times digit methods. </li>
+         <li>Test with different values and ranges.</li>   
+         <li>The tests for operator*(bigint) are provided and your method should pass this test completely.</li>
+         <li>Do you think these tests are complete?  If not feel free to add additional ones.</li>       
+         <li>You will need to update the makefile - instructions are in the makefile.</li>   
+         <li>The command <code>make tests</code> will build and run the unit tests.</li>
+
+       <li>Create a main body (name the file multiply.cpp) that reads from the file data1-2.txt and does the following:</li>
+         <ul style="margin-top: 0in">
+         <li>Test for success of opening the file in your program.</li>
+         <li>Read in two numbers into <code>bigint</code>s and write both out separated by a blank line.</li>
+         <li>Multiply these together and write the result.</li>
+         <li>Then read in two more big numbers, multiplying them and writing the result until end of file.</li>      
+         <li>All output must be labeled and neat.</li>
+         <li>The command <code>make multiply</code> will build and run this program.</li>
+       </ul>
+    </ul>
+         
+   </ul>
+</ul>
+
+
+
+<b>Challenge</b> - 10 pts:
+<ul style="margin-top: 0in">
+  <li>How many trailing zero's are there on 100! ?</li>
+  <li>Implement a factorial operator that works on <code>bigint</code> to determine the answer.  Give output and a
+      description of how you calculated the answer.</li>
+  <li>How else (mathematically) could you figure out how many trailing zeros are on a given number (besides coding it up)?</li>
+  <li>The command <code>make factorial</code> will build and run this program.</li>
+</ul>
+
+<b>Other Requirements:</b>
+<ul style="margin-top: 0in">
+    <li>You can NOT use a pre-defined library or built in class (such as <code>std::vector</code> or <code>std::string</code>) 
+        to solve this problem. Use a standard array to solve the problem.</li>
+    <li>You must have a separate specification file (.hpp
+        ), implementation file (.cpp), and main file.</li>
+    <li>You must do any necessary error checking.</li>
+    <li>Your program will be graded on programming and commenting style as well as the implementation of your ADT.</li>
+    <li>Include all source code files in svn.</li>
+    <li>See the grading policy for other requirements.</li>
+</ul>
+
+
+
+
+<hr width="100%">
+<address>
+URL: http://www.cs.kent.edu/~jmaletic/CS23001/programs/prog1.html<br>
+Last update: Mon Feb 15 16:04:30 2016 EST
+</address>
+<hr width="100%">
+
+
+</font></font></font></body><autoscroll></autoscroll></html>

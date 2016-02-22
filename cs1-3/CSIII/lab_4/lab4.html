@@ -1,0 +1,62 @@
+
+<!-- saved from url=(0059)http://vega.cs.kent.edu/~mikhail/classes/cs3/Labs/lab9.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><h1>Last Name Roster</h1>
+<h2>Lab Assignment</h2>
+
+The project is due in one week: by the midnight on the day of the next
+lab. Make sure to include your name in comments of the source
+files.
+
+<p>
+Recode the
+<a href="http://vega.cs.kent.edu/~mikhail/classes/cs3/Examples/STLContainersSequential/Roster">roster</a>
+example we studied in class such that the list of classes the student
+is enrolled in is output next to student name.
+</p><p>
+<!--
+The container of the student roster should be modified as follows: the
+vector should contain student entries. Each entry is a linked list
+where the first entry is a first (or last) name, followed by the
+entries of the courses the student is enrolled in. That is, the
+structure hodling student entries should
+be: <samp>vector&ltlist&ltstring&gt&gt studentEntries</samp> or
+    <samp>list&ltlist&ltstring&gt&gt studentEntries</samp>
+
+Assume that students all have different last names.
+<p>
+--> The printed out list may be tab-separated.  You may assume that
+the text file structure is: one name per line; the line contains a
+first name followed by last name separated by white space. Each
+student has exactly two names: first and last. The course name is the
+file name without the extension. The dropouts file is always the last file in the list and its name is always <samp>dropouts.txt</samp>
+</p><p>
+Here is an example of a printout:
+</p><pre>All Students
+first name   last name  courses enrolled 
+Kathleen    Anderson CS1   CS3
+Gerald   Edwards  CS1   CS2 CS3
+Mary    Price    CS1
+...
+</pre>
+<p>
+You may not use associative containers: only vectors and lists.
+
+</p><p><b>Hint:</b> after compiling the mater list of enrolled students,
+use <samp>find()</samp> function of <samp>list</samp> container to
+check if the student name is present in each roster.
+
+<!--
+<ul>
+<li>Create a function that swaps first and last names for
+input and processing.
+
+
+<li>Use extraction operator to input tokens (words) and strip the
+whitespace. If you still want to use <samp>getline()</samp>, you can
+then tokenize a string by treating a string as a stream and using an
+extraction operator on this stream. <a href=tokenize.cpp>Here</a> is
+an example tokenzing program that works on <a href=test.txt>this</a>
+text file.
+-->
+
+</p></body><autoscroll></autoscroll></html>

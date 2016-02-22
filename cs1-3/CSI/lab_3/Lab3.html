@@ -1,0 +1,142 @@
+
+<!-- saved from url=(0055)http://vega.cs.kent.edu/~mikhail/classes/csi/Labs/Lab3/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><h1>Looping</h1>
+<h2>Lab Assignment</h2>
+
+The assignment contains two parts
+
+<ol>
+<li><b>Positive sum</b>. Study
+<a href="http://vega.cs.kent.edu/~mikhail/classes/csi/Labs/MSVS/features.html">hovering</a>. As you work on this
+project, demonstrate to the lab instructor looking up the value of a
+variable by hovering over it.
+
+Create a project titled <samp>Lab3_Sum</samp> with a single file
+<samp>sum.cpp</samp>. Your program should ask the user for a sequence
+of numbers until the user inputs <samp>0</samp> (zero) and then the
+program should print the sum of positive numbers that the user
+input. Here is an example dialog:
+<pre>Input sequence of integers (zero to stop):  -4 3 -20 10 45 100 -1 0
+The sum of positive numbers is: 158 
+</pre>
+ You are not allowed to use functions, arrays or other constructs that
+we have not yet studied.
+<p>
+<b>Hint:</b> You need to use iterate-and-keep-track idiom.
+<samp>while</samp> or <samp>do-while</samp> would be a good construct
+to use. Consider a single number in each iteration. In
+the <samp>while</samp>-expression check if this number is not zero. If
+not -- proceed, if yes -- stop evaluation and print out the
+result. Declare a variable where your program will collect the sum of
+positive numbers. Make sure to initialize this variable. In the loop,
+with an <samp>if</samp>, check if the number is positive and, if yes,
+add it to the sum. Look at <a href="http://vega.cs.kent.edu/~mikhail/classes/csi/Labs/Lab3/max.cpp">this example</a> of
+selecting the maximum number. It is very similar to what you need to
+implement.
+
+</p><p>
+</p></li><li><b>Figures.</b> Create a project titled <samp>Lab3_Figures</samp>
+with a single file <samp>figures.cpp</samp>. Your program should ask
+the user for a number and then print two squares and two triangles out of
+stars whose size is equal to the number input. Here is an example
+dialog:
+<pre>Input number: 4
+
+****
+****
+****
+****
+
+*
+**
+***
+****
+
+****
+ ***
+  **
+   *
+
+****
+*  *
+*  *
+****
+
+</pre>
+Note that your program has to work for an arbitrary integer, not just
+<samp>4</samp>. You can use either <samp>while</samp>
+or <samp>for</samp> looping constructs.
+<p>
+<b>Hints:</b> For each figure, you need to use two nested loops: the
+outer loop will iterate over rows (of stars) and the inner loop will
+print out the the stars in a single row. The programming structure for
+all figures is similar. Study the code for
+the <a href="http://vega.cs.kent.edu/~mikhail/classes/csi/Labs/Lab3/odometer.cpp">odometer program</a>. This program has nested
+loops which are very similar to what you need to implement.
+</p><p>
+I suggest you code and debug the first figure printout and then
+proceed to the next. For the second figure, the number of stars
+printed in the inner loop is the same as the row number. That is, the
+loop variable of the outer loop should be present in the
+loop-expression in the inner loop. Consider the numbers of row and
+columns in a table. These numbers will be reflected by the loop
+variables:
+</p><ul>
+<table>
+<tbody><tr>
+<td>
+<font color="red">column index is red</font><br>
+<font color="green">row index is green</font>
+</td>
+
+<td><font color="red">column 0</font></td>
+<td><font color="red">column 1</font></td>
+<td><font color="red">column 2</font></td>
+<td><font color="red">column 3</font></td></tr>
+<tr><td><font color="green">row 0</font></td>
+<td align="center"><font color="green">0</font><font color="red">0</font></td>
+<td align="center"><font color="green">0</font><font color="red">1</font></td>
+<td align="center"><font color="green">0</font><font color="red">2</font></td>
+<td align="center"><font color="green">0</font><font color="red">3</font></td>
+</tr>
+
+<tr><td><font color="green">row 1</font></td>
+<td align="center"><font color="green">1</font><font color="red">0</font></td>
+<td align="center"><font color="green">1</font><font color="red">1</font></td>
+<td align="center"><font color="green">1</font><font color="red">2</font></td>
+<td align="center"><font color="green">1</font><font color="red">3</font></td>
+</tr>
+
+<tr><td><font color="green">row 2</font></td>
+<td align="center"><font color="green">2</font><font color="red">0</font></td>
+<td align="center"><font color="green">2</font><font color="red">1</font></td>
+<td align="center"><font color="green">2</font><font color="red">2</font></td>
+<td align="center"><font color="green">2</font><font color="red">3</font></td>
+</tr>
+<tr><td><font color="green">row 3</font></td>
+<td align="center"><font color="green">3</font><font color="red">0</font></td>
+<td align="center"><font color="green">3</font><font color="red">1</font></td>
+<td align="center"><font color="green">3</font><font color="red">2</font></td>
+<td align="center"><font color="green">3</font><font color="red">3</font></td>
+</tr>
+
+</tbody></table>
+</ul>
+
+<p>The third figure code is similar to
+the first two: the total number of characters is the same in each
+row. However, at some point, the character changes from space to star.
+</p><p>
+To code the hollow square, consider using a multiway if with the following logic:
+</p><pre>  If it is the first line - then print a star
+  else if it is the last line - then print a star
+  else if it is the first column - then print a star
+  else if it is the last column - then print a star 
+  else print a space
+</pre>
+</li></ol>
+
+Make sure you program adheres to proper programming style. Submit your
+project to the subversion repository.  Do not forget to verify your
+submission on the web.
+</body><autoscroll></autoscroll></html>

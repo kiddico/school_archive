@@ -1,0 +1,27 @@
+Script started on Tue 22 Apr 2014 08:49:05 PM EDT
+[?1034hbash-4.1$ cd Lab13_m[KMultiArrays/
+bash-4.1$ ls
+Debug  Lab13_MultiArrays  Lab13_MultiArrays.sdf  Lab13_MultiArrays.sln	Lab13_MultiArrays.v11.suo
+bash-4.1$ lscd Lab13_MultiArrays/
+bash-4.1$ ls
+Debug  Lab13_MultiArrays.vcxproj  Lab13_MultiArrays.vcxproj.filters  Source.cpp
+bash-4.1$ g++ -o test Source.cpp
+bash-4.1$ ls
+Debug  Lab13_MultiArrays.vcxproj  Lab13_MultiArrays.vcxproj.filters  Source.cpp  test
+bash-4.1$ ./test
+Another Shot? [y/n]
+y
+Location? a 
+2
+ a b c d e
+1          
+2*         
+3          
+4          
+5          
+Another Shot? [y/n]
+n
+bash-4.1$ exit
+exit
+
+Script done on Tue 22 Apr 2014 08:49:43 PM EDT

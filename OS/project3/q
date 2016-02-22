@@ -1,0 +1,8 @@
+#!/bin/bash
+g++ -std=c++0x -o pageReplace pageReplace.cpp
+
+if [ -f ./pageReplace ]
+then
+	clear;
+	./pageReplace
+fi

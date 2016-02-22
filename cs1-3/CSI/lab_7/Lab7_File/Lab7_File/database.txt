@@ -1,0 +1,5 @@
+date:	10/13/2013
+name:	Jane Reed
+amount, dollars: 45
+cents: 30
+payee: Home Depot

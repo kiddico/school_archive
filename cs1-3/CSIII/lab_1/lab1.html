@@ -1,0 +1,106 @@
+
+<!-- saved from url=(0059)http://vega.cs.kent.edu/~mikhail/classes/cs3/Labs/lab1.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><h1>Diff</h1>
+<h2>Lab Assignment</h2>
+
+The project is due in one week. Specifically, it is due by the
+midnight on the day of the next lab.
+<p>
+<!--
+The assignment contains two parts. Implement both parts using
+procedural programming techniques only. That is, you are not allowed to
+define classes or declare objects.
+-->
+
+Implement the lab using procedural programming techniques only. That
+is, you are not allowed to define classes or objects.
+
+</p><p>
+<b>Diff.</b>  Implement a program that compares two text files
+character-by-character. The program should output the line numbers
+that contain different characters and the place where the two lines
+start to differ (the difference is denoted by ^ (caret) character. If
+both files are identical, the program should output nothing. If one
+file is shorter than the other, the shorter file is assumed to have
+empty lines, i.e. the extra lines of the longer file are considered
+different from the empty lines of the shorter file.
+</p><p>
+The file names should be passed as arguments on the command
+line. Assume the two file names are the same length. Assume the files
+exist. If your program is invoked with different number of arguments,
+print help message and quit. The program operation should look like
+this:
+</p><pre>	prompt% diff file1.txt file2.txt
+
+	file1.txt: 20: Hello
+	file2.txt: 20: Hallo
+                        ^
+	file1.txt: 25: World????
+	file2.txt: 25: World!
+                            ^
+</pre>
+where 20 and 25 are line numbers.
+<p>
+You are allowed to use <samp>getline()</samp> and string comparison
+functions in the implementation of this project.
+<!--
+<p>
+<li><b>Cipher.</b>  Implement a program that executes so-called Cesar
+cipher. The program should read the source file
+character-by-character, add the specified key to each character and
+output the encoded program into target file. Only alphabetic
+characters need to be encoded (use <samp>isalpha()</samp> function).
+The key should be taken modulo 26.
+
+The key, source and target file names are specified on the command
+line. That is, the invocation of the program is as follows:
+<pre>
+	prompt% cipher 2 source.txt target.txt
+</pre>
+Note that to reverse the encoding, the program should be executed with
+matching negative key:
+<pre>
+        prompt% cipher -2 target.txt source.txt
+</pre>
+To check the operation of your program, encode then decode the same
+file and compare the difference between the original and decoded files
+using diff (implemented in the first part of the assignment).
+
+<p>
+<b>Hints</b>.
+<p>
+You can use <samp>atoi()</samp> function to convert from string to
+integer to get the key from the command line argument. See example
+<a href=toInt.cpp>here</a>.
+<p>
+Use <samp>isupper()</samp> or <samp>islower()</samp> to distinguish
+upper/lower cases of letters.
+<p>
+To configure command-line arguments for an MS Visual Studio project,
+right-click Solution Explorer, select "properties" from the drop-down
+menu, go to Configuration Properties  Debugging and set "Command
+Arguments" in the properties list.
+-->
+
+</p><p><b>Hint</b>.
+The command line arguments are input as C-style strings
+arguments to <samp>main()</samp>. <a href="http://vega.cs.kent.edu/~mikhail/classes/cs3/Labs/commandLine.cpp">See this
+program</a> for an example of handling them.
+</p><p>
+To configure command-line arguments for an MS Visual Studio project,
+right-click Solution Explorer, select "properties" from the drop-down
+menu, go to Configuration Properties  Debugging and set "Command
+Arguments" in the properties list.
+</p><p>
+To create a string of spaces of a particular <samp>length</samp> use this form of initialization:
+<samp>string spaceString(length, ' ');</samp>, or
+use <samp>assign</samp> operator: <samp>spaceString.assign(length, '
+');</samp>
+
+<!--
+Consider using <samp>str.compare()</samp> for string
+comparison. See <a href=strCompare.cpp>this program</a> for example
+usage.
+-->
+
+</p></body><autoscroll></autoscroll></html>

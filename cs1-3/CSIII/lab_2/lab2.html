@@ -1,0 +1,85 @@
+
+<!-- saved from url=(0059)http://vega.cs.kent.edu/~mikhail/classes/cs3/Labs/lab2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><h1>Word Count</h1>
+<h2>Lab Assignment</h2>
+
+The project is due in one week: by the midnight on the day of the next
+lab.
+
+<!--
+Implement object-based Cesar Cipher. For that, implement the following
+class:
+<pre>
+class EncodedFile{
+public:
+      EncodedFile(fileName, key=0); // file name to open and encryption key 
+      char next(void); // returns next encoded character
+      bool done(void); // end of file reached
+private:
+      // provide implementation
+};
+</pre>
+<p>
+Only alphabetic characters need to be encoded
+(hint: <samp>isalpha()</samp> is a good function to use). The rest of
+the characters should unencoded. The key is to be used modulo 26. You may expand the interface as you see fit.
+<p>
+In your <samp>main()</samp>, you should initialize the object of
+class <samp>EncodedFile</samp> and then keep
+invoking <samp>next()</samp> until end of the file is reached.  -->
+<p>
+
+Implement a program that reads in a text file, counts how many times
+each word occurs in the file and outputs the words (and counts) in the
+decreasing order of occurrence, i.e. the counts need to be output in
+sorted order. <i>Word</i> is any sequence of alphanumeric
+characters. Whitespace and punctuation marks are to be discarded. That
+is, the punctuation marks should not be counted either as a part of
+the word or as a separate word.  You are free to make your program
+case sensitive (<samp>Hello</samp> and <samp>hello</samp> are counted
+as separate words) or case insensitive. File name is supplied on
+command line. You are to use the following classes.
+
+
+</p><pre>class WordOccurrence {
+public:
+    WordOccurrence(const string&amp; word="", int num=0);
+    bool matchWord(const string &amp;); // returns true if word matches stored
+    void increment(); // increments number of occurrences
+    string getWord() const; 
+    int getNum() const;
+
+private:
+    string word_;
+    int num_;
+};
+
+class WordList{
+public:
+    // add copy constructor, destructor, overloaded assignment
+    void addWord(const string &amp;);
+    void printList();
+private:
+    WordOccurrence *wordArray_; // a dynamically allocated array of WordOccurrences
+                                // may or may not be sorted
+    int size_;
+};
+
+</pre>
+
+
+Using vectors is not allowed.  You may use standard sorting algorithms
+or implement insertion sort form scratch.  For the second class
+(<samp>WordList</samp>), implement a copy constructor (implementing
+deep copy), destructor and an overloaded assignment (either classical
+or copy-and-swap).  Make sure your class works correctly with
+the <a href="http://vega.cs.kent.edu/~mikhail/classes/cs3/Labs/testWordList.cpp">following code</a>.
+For your constructors, use member initialization lists where possible,
+use default values for function parameters where appropriate. Enhance
+class interface if necessary.
+
+
+
+<p>
+<b>Hint:</b> you can use <samp>ctype</samp> functions to check if a character is alphanumeric. <a href="http://vega.cs.kent.edu/~mikhail/classes/cs3/Labs/ctypedemo.cpp">Here</a> is an example use.
+</p></body><autoscroll></autoscroll></html>

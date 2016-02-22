@@ -1,0 +1,9 @@
+clear
+clear
+clang++ -c -Wall io.cpp string.cpp
+echo "Object Code Created"
+clang++ io.o string.o -o output
+echo "Executable Made"
+echo "Output Below"
+echo "//////////////////////////////////////////////////////////////////////////////////////////////////////////////////"
+./output

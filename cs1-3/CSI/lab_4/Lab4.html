@@ -1,0 +1,111 @@
+
+<!-- saved from url=(0055)http://vega.cs.kent.edu/~mikhail/classes/csi/Labs/Lab4/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><h1>Predefined Functions</h1>
+<h2>Lab Assignment</h2>
+
+The assignment contains two parts.
+
+<ol>
+<li><b>Scientific calculator.</b>  Study tracking changes and
+  automatic indentation in MSVS
+  <a href="http://vega.cs.kent.edu/~mikhail/classes/csi/Labs/MSVS/features.html">described here</a>. As you program
+  your project below, demonstrate to the lab instructor 
+  applying automatic indentation to your code.
+  <p>
+
+  Study <a href="http://vega.cs.kent.edu/~mikhail/classes/csi/Labs/Lab4/math_library_functions.html">these functions</a> of the
+  math library. Create a project titled <samp>Lab4_Calculator</samp>
+  with a single file titled <samp>calculator.cpp</samp>. Write a
+  program that: </p><ul>
+  <li> prints a numbered menu of mathematical operations as shown below;
+  </li><li> then prompts the user to select an operation;
+  </li><li> then prompts and inputs the operands for the selected option (note that
+  some operations require one and some two operands);
+  </li><li>  then computes  and outputs the result. 
+  </li></ul>
+  The process repeats. The program should quit if the user inputs an
+  option (number) that is not listed. The dialog should look as
+  follows:
+
+<pre>1. absolute value
+2. square root
+3. ceiling
+4. power
+Select an operation:  4
+Enter base: 2
+Enter exponent: 3
+The result is: 8
+Select an operation: 
+...
+</pre>
+
+</li><li><b>Guessing game.</b>  
+
+  Create a project titled <samp>Lab4_Guess</samp> with a single file
+  titled <samp>guess.cpp</samp> Program the following game. The
+  computer selects a random number between 0 and 99 and asks the user
+  to guess the number. If the user guesses incorrectly, the computer
+  states whether the selected number is smaller or greater than the
+  guess. The guessing repeats until the user guesses the number. The
+  dialog should look as follows:
+
+  <pre>  I selected a number between 0 and 99, what is it?    30
+  wrong, it is larger, what is it?   60
+  wrong, it is smaller, what is it?  50
+  wrong, it is larger, what is it?   55
+  wrong, it is smaller, what is it?  53
+  correct!
+  </pre>
+
+  For your program you need to use predefined randomization
+  functions <samp>rand()</samp> and <samp>srand()</samp> as well as
+  the time function <samp>time()</samp>
+
+  <p>
+  </p><ul>
+  <li>Function <samp>time()</samp> returns current time (as kept by
+    the computer) in the number of seconds passed since midnight,
+    January 1, 1970.  You need to include <samp>ctime</samp> to use
+    this function. The function takes one argument but for this
+    assignment the argument value is a special named
+    constant <samp>nullptr</samp>. Check <a href="http://vega.cs.kent.edu/~mikhail/classes/csi/Labs/Lab4/time.cpp">this
+    program</a> for an example usage.
+  <p>
+  </p></li><li> To use functions <samp>rand()</samp> and <samp>srand()</samp>
+       you need to include <samp>cstdlib</samp>
+       Function <samp>srand()</samp> initializes the random number
+       generator of the program. It takes a single integer
+       argument. The value passed to <samp>srand()</samp> determines
+       the values output by <samp>rand()</samp>. This value is
+       called <i>seed</i>.
+       <p>
+       <samp>rand()</samp> takes no arguments. Every
+       time <samp>rand()</samp> is invoked it returns an integer value between
+       0 and constant RAND_MAX defined in <samp>cstdlib</samp>. Note
+       that the sequence of values returned by repeated calls
+       of <samp>rand()</samp> is uniquely determined by the seed
+       passed to <samp>srand()</samp>. That is,
+       if <samp>srand()</samp> is passed the same
+       seed, <samp>rand()</samp> is going to return the same sequence
+       of numbers. This is helpful for
+       debugging. Check <a href="http://vega.cs.kent.edu/~mikhail/classes/csi/Labs/Lab4/random.cpp">this program</a> for an
+       example of random number manipulation.
+  </p></li></ul>
+
+  <b>Hints:</b> Use fixed values of the seed for your initial
+  debugging, use the output of <samp>time()</samp> as an unpredictable
+  seed to start the guessing game once you debugged your program.
+  <p>
+  Note that random value produced by <samp>rand()</samp> is out of the
+  required range of 0-99. Use just the last two digits of the
+  number. To get them, compute the remainder of the division by 100 of
+  the number returned by <samp>rand()</samp>
+  </p><p>
+  Do not put <samp>srand()</samp> inside the loop or anywhere, where it
+  may be invoked more than once - it resets the random number generator.
+</p></li></ol>
+
+Make sure your program adheres to proper programming style. Submit your
+project to the subversion repository.  Do not forget to verify your
+submission on the web.
+</body><autoscroll></autoscroll></html>
