@@ -1,4 +1,4 @@
-# Code-Repo
+# School labs and projects - KSU
 I used to have this hosted on my site, but it makes a lot more sense to do it like this instead.
 
 ### A note to academic administration and comments on licensing:
