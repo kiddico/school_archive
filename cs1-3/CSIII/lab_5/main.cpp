@@ -44,7 +44,7 @@ int main(int argc, char** argv){
 	while( to_drop.size() == 2 );
 	stream.close();
 
-	// I hope to got I did that less correctly
+	// I hope to god I did that less correctly
 	std::map<vector<string>,std::list<string>,name_comp> roster;
 	for( size_t i =1; i < argc-1; i++ ){
 		stream.open( argv[i] );
