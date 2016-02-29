@@ -13,4 +13,5 @@ Prepend the url to the blob with "http://htmlpreview.github.io/?".
 For example, to view the instructions for lab 3 in CSI go to the url:
 http://htmlpreview.github.io/?https://github.com/kiddico/Code-Repo/blob/master/cs123/CSI/lab_3/Lab3.html
 
-
+##### For anyone learning c++ this may be useful ;P
+http://pgbovine.net/rosetta/cpp-demo.html
