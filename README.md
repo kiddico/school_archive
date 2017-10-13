@@ -4,7 +4,7 @@ I used to have this hosted on my site, but it makes a lot more sense to do it li
 ### A note to academic administration and comments on licensing:
 I only ever commit after the due date of projects for the class I'm currently attending. After it's been put up here it's absolutely free game. Changes and redistribution for non-commercial use is allowed. Do what ya gotta do.
 
-###A note to students to whom these things may be of use:
+### A note to students to whom these things may be of use:
 Don't be stupid, stupid.
 
 
